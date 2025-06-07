@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeApp - Weather Forecast</title>
+  <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../../styles/style.css" />
+</head>
+<body>
+<main class="container container--forecast">
+<section class="panel panel--search">
+  <div class="input-group">
+    <div>
+      <input class="input" id="input" name="city" placeholder="Enter your city" type="text" aria-label="Search city for weather" />
+      <div class="options" role="listbox"></div>
+    </div>
+    <select class="days-input" aria-label="Input forecast days">
+      <option class="day-option" value="1">1 day</option>
+      <option class="day-option" value="2">2 days</option>
+      <option class="day-option" value="3">3 days</option>
+    </select>
+  </div>
+  <button class="submit" type="button">Submit</button>
+  <div class="error" role="alert"></div>
+</section>
+
+<section class="panel panel--forecast"></section>
+</main>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

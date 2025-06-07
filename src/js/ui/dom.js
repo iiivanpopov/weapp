@@ -7,10 +7,14 @@ export const elements = {
   error: $(".error"),
   responseContainer: $(".panel--weather"),
   temperatureGradient: $(".temperature-gradient"),
+  forecastDisplay: $(".panel--forecast"),
+  forecastDays: $(".days-input"),
   responseElements: {},
 };
 
-elements.responseContainer.querySelectorAll(".value").forEach((span) => {
-  const key = span.className.split(" ")[1];
-  elements.responseElements[key] = span;
-});
+if (elements.responseContainer) {
+  elements.responseContainer.querySelectorAll(".value").forEach((span) => {
+    const key = span.className.split(" ")[1];
+    elements.responseElements[key] = span;
+  });
+}

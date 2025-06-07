@@ -7,4 +7,7 @@ export const config = {
   currentWeatherUrl() {
     return `${this.API_URL}/current.json?key=${this.API_KEY}`;
   },
+  forecastUrl() {
+    return `${this.API_URL}/forecast.json?key=${this.API_KEY}`;
+  },
 };
