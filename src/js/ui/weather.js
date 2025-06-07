@@ -1,7 +1,7 @@
 import { SORTED_CITIES } from "../lib/constants.js";
 import { fetchWeather } from "../lib/api.js";
 import { elements } from "./dom.js";
-import { formatCloudiness } from "../lib/utils.js";
+import { formatCloudiness, mapTemperature } from "../lib/utils.js";
 
 let filteredCities = [...SORTED_CITIES];
 
@@ -20,7 +20,7 @@ export const filterCities = (query) => {
   );
 };
 
-export const toggleCitiesList = (visible) => {
+const toggleCitiesList = (visible) => {
   elements.citiesList.style.display = visible ? "block" : "none";
 };
 
@@ -29,7 +29,7 @@ export const updateCitiesUI = (cities) => {
   elements.cityInput.classList.toggle("no-results", cities.length === 0);
 };
 
-export const updateWeatherUI = ({
+const updateWeatherUI = ({
   location: { name, country, localtime },
   current: { temp_c, humidity, wind_dir, wind_kph, cloud, is_day },
 }) => {
@@ -48,13 +48,14 @@ export const updateWeatherUI = ({
     elements.responseElements[key].textContent = value;
   }
 
-  elements.responseContainer.classList.toggle("glow-light", is_day);
-  elements.responseContainer.classList.toggle("glow-dark", !is_day);
+  const temperatureColor = mapTemperature(temp_c);
+  elements.temperatureGradient.style.background = `linear-gradient(0deg, ${temperatureColor}80 0%, ${temperatureColor}00 100%)`;
 };
 
 export const fetchAndDisplayWeather = async (city) => {
   elements.fetchBtn.disabled = true;
   elements.error.textContent = "";
+  elements.temperatureGradient.style.background = "";
 
   const response = await fetchWeather(city);
 

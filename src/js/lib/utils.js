@@ -16,3 +16,15 @@ export const formatCloudiness = (percent) => {
   if (percent < 88) return "Mostly Cloudy";
   return "Overcast";
 };
+
+export const mapTemperature = (temp) => {
+  if (temp < -10) return "#4b4b99";
+  if (temp < 0) return "#5f75d1";
+  if (temp < 5) return "#89a6f3";
+  if (temp < 10) return "#a4c2f4";
+  if (temp < 15) return "#cddc39";
+  if (temp < 20) return "#ffe066";
+  if (temp < 25) return "#ff9c66";
+  if (temp < 30) return "#ff7043";
+  return "#e53935";
+};

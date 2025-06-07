@@ -5,7 +5,8 @@ export const elements = {
   citiesList: $(".options"),
   fetchBtn: $(".submit"),
   error: $(".error"),
-  responseContainer: $(".weather"),
+  responseContainer: $(".panel--weather"),
+  temperatureGradient: $(".temperature-gradient"),
   responseElements: {},
 };
 

@@ -4,18 +4,13 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>WeApp - Weather Forecast</title>
-  <meta name="description" content="Get accurate, real-time weather forecasts for any city worldwide. Includes temperature, humidity, wind speed, direction, cloudiness and more." />
-  <meta name="keywords" content="weather, city weather, weather forecast, real-time weather, humidity, temperature, wind speed" />
-
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="src/styles/style.css" />
 </head>
 <body>
 <main class="container">
-  <section class="panel search">
-    <label class="sr-only" for="input">Search for a city</label>
+  <section class="panel panel--search">
     <div>
       <input class="input" id="input" name="city" placeholder="Enter your city" type="text" aria-label="Search city for weather" />
       <div class="options" role="listbox"></div>
@@ -24,7 +19,7 @@
     <div class="error" role="alert"></div>
   </section>
 
-  <article class="panel weather card">
+  <section class="panel panel--weather card">
     <div class="field-group">
       <div class="field">
         <div class="label">Country:</div>
@@ -58,18 +53,21 @@
       </div>
     </div>
 
-    <div class="field">
-      <div class="label">Time:</div>
-      <div class="value localtime"></div>
-    </div>
+    <div class="field-group">
+      <div class="field">
+        <div class="label">Time:</div>
+        <div class="value localtime"></div>
+      </div>
 
-    <div class="field">
-      <div class="label">Cloudiness:</div>
-      <div class="value cloud"></div>
+      <div class="field">
+        <div class="label">Cloudiness:</div>
+        <div class="value cloud"></div>
+      </div>
     </div>
-  </article>
+  </section>
 </main>
+<div class="temperature-gradient"></div>
 
-<script type="module" src="script.js"></script>
+<script type="module" src="src/js/script.js"></script>
 </body>
 </html>

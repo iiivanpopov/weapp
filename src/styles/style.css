@@ -38,13 +38,13 @@ body {
 
 body {
   background: url("../assets/background.jpg") center/cover no-repeat;
-  scrollbar-width: none;
 }
 
 .container {
-  align-items: flex-start;
   display: flex;
   height: 100%;
+  column-gap: 80px;
+  padding-top: 80px;
   justify-content: center;
   margin: 0 auto;
   position: relative;
@@ -62,6 +62,7 @@ body {
   padding: var(--spacing-sm);
   position: absolute;
   width: var(--width-search);
+  scrollbar-width: none;
 }
 
 .options::-webkit-scrollbar {
@@ -80,6 +81,25 @@ body {
   color: var(--color-text-primary);
 }
 
+.panel {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.panel--search {
+  gap: var(--spacing-md);
+  max-width: var(--width-search);
+}
+
+.panel--weather {
+  max-width: var(--width-weather);
+  height: fit-content;
+}
+
 .card {
   background-color: var(--color-bg-dark);
   border: var(--border-width) solid var(--color-border);
@@ -87,50 +107,28 @@ body {
   padding: var(--spacing-sm);
 }
 
-.panel {
-  color: var(--color-text-secondary);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  font-size: var(--font-size-sm);
-}
-
-.search {
-  background: none;
-  border: none;
-  gap: var(--spacing-md);
-  left: var(--offset-side);
-  position: absolute;
-  top: var(--offset-top);
-  width: var(--width-search);
-}
-
-.weather {
-  position: absolute;
-  right: var(--offset-side);
-  top: var(--offset-top);
-  width: var(--width-weather);
-}
-
 .field-group {
   display: flex;
-  gap: var(--spacing-xs);
   justify-content: space-between;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
 }
 
 .field {
-  align-items: center;
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 45%;
 }
 
 .label {
   font-weight: 700;
+  opacity: 0.8;
 }
 
 .value {
-  color: var(--color-text-primary);
   font-weight: 400;
+  color: var(--color-text-primary);
 }
 
 .input,
@@ -145,14 +143,14 @@ body {
   width: 100%;
 }
 
+.input:focus {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .input {
   padding: 0 var(--spacing-xs);
   width: var(--width-search);
-}
-
-.input:focus {
-  border-bottom: none;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .input.invalid {
@@ -171,35 +169,23 @@ body {
   justify-content: center;
   transition: background-color 0.3s ease;
   width: var(--width-search);
+  font-weight: 700;
 }
 
 .submit:hover,
-.submit:focus {
+.submit:focus-visible {
   background-color: var(--color-border);
-}
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.glow-light {
-  box-shadow: 0 0 20px white;
-}
-
-.glow-dark {
-  box-shadow: 0 0 20px #000c2b;
 }
 
 .error {
   color: var(--color-text-error);
+}
+
+.temperature-gradient {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
 }
 
 @media (max-width: 700px) {
@@ -210,10 +196,10 @@ body {
     padding: var(--spacing-sm);
   }
 
-  .search,
-  .weather {
-    position: static;
+  .panel--search,
+  .panel--weather {
     width: 100%;
+    max-width: var(--width-search);
     margin-top: var(--spacing-sm);
   }
 
@@ -227,17 +213,16 @@ body {
   }
 }
 
+@media (max-width: 500px) {
+  .panel--search,
+  .panel--weather {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 1440px) {
   .container {
+    padding: 80px 0;
     width: 100%;
-    padding: 0 var(--spacing-md);
-  }
-
-  .search {
-    left: var(--spacing-md);
-  }
-
-  .weather {
-    right: var(--spacing-md);
   }
 }
