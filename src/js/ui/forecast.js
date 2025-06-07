@@ -18,8 +18,10 @@ export const displayForecast = (forecast) => {
     html += `<span class="forecast__title" title="date, max-min(avg)°C">${date}, ${mintemp_c}-${maxtemp_c}(${avgtemp_c})°C</span>`;
     html += `<div class="forecast__grid">`;
     day.hour.forEach(({ temp_c, condition: { icon } }, index) => {
+      const delay = (index * 0.05).toFixed(2);
+
       html += `
-        <div class="forecast__hour">
+        <div class="forecast__hour" style="animation-delay: ${delay}s;">
           <img class="forecast__icon" src="${icon}" alt="condition"/>
           <span class="forecast__time">${index.toString().padStart(2, "0")}:00</span>
           <span class="forecast__temperature">${temp_c}°C</span>

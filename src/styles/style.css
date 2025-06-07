@@ -19,6 +19,19 @@
   --space-lg: 2.5rem;
 }
 
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
+.switch-page {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--color-text);
+  font-size: var(--font-small);
+}
+
 *,
 *::before,
 *::after {
@@ -85,10 +98,27 @@ body {
   gap: 0.25rem;
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-pair {
+  position: relative;
+}
+
 .forecast__hour {
   display: flex;
   flex-direction: column;
+  opacity: 0;
   align-items: center;
+  animation: fadeInUp 0.3s ease forwards;
 }
 
 .forecast__icon {
@@ -117,6 +147,7 @@ body {
   display: none;
   padding: var(--space-sm);
   scrollbar-width: none;
+  width: 100%;
 }
 
 .options::-webkit-scrollbar {
