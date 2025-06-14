@@ -16,6 +16,7 @@ export const displayForecast = (forecast) => {
 
     html += `<div class="forecast__table">`;
     html += `<span class="forecast__title" title="date, max-min(avg)°C">${date}, ${mintemp_c}-${maxtemp_c}(${avgtemp_c})°C</span>`;
+
     html += `<div class="forecast__grid">`;
     day.hour.forEach(({ temp_c, condition: { icon } }, index) => {
       const delay = (index * 0.05).toFixed(2);
@@ -28,10 +29,11 @@ export const displayForecast = (forecast) => {
         </div>`;
     });
     html += `</div>`;
+
     html += `</div>`;
   });
-
   html += `</div>`;
+
   html += `</div>`;
 
   elements.forecastDisplay.innerHTML = html;

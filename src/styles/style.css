@@ -78,7 +78,6 @@ body {
   border: var(--border-thin) solid var(--color-border);
   border-radius: var(--radius-default);
   padding: var(--space-md);
-  min-width: 500px;
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -94,7 +93,6 @@ body {
 .forecast__grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   gap: 0.25rem;
 }
 
@@ -283,11 +281,26 @@ body {
   .field-group {
     flex-direction: column;
   }
+
+  .switch-page {
+    position: static;
+    text-align: center;
+  }
 }
 
 @media (max-width: 500px) {
   .panel--search,
-  .panel--weather {
+  .panel--weather,
+  .forecast {
     max-width: 100%;
+  }
+
+  .input-group {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+  }
+
+  .forecast__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
