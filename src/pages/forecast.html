@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WeApp - Weather Forecast</title>
+		<link
+			rel="shortcut icon"
+			href="../assets/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="../styles/theme.css" />
+		<link rel="stylesheet" href="../styles/global.css" />
+		<link rel="stylesheet" href="../styles/forecast.css" />
+	</head>
+	<body>
+		<header class="header">
+			<a href="../pages/current-weather.html" class="link">Switch To Current</a>
+			<button class="theme">Switch theme</button>
+		</header>
+		<main class="container">
+			<div class="card">
+				<div class="city-form">
+					<div class="combobox">
+						<!--  I know that, there is an easy way (input+datalist)  -->
+						<input
+							class="input combobox__input"
+							id="city-input"
+							placeholder="Enter your city"
+							type="text"
+						/>
+						<div class="combobox__options" id="city-list"></div>
+					</div>
+					<select class="input select" id="days-input">
+						<option class="day-option" value="1">1 day</option>
+						<option class="day-option" value="2">2 days</option>
+						<option class="day-option" value="3">3 days</option>
+					</select>
+					<button
+						class="button city-form__submit"
+						type="button"
+						id="fetch-forecast"
+					>
+						Fetch
+					</button>
+					<span class="city-form__error"></span>
+				</div>
+				<div class="forecast"></div>
+			</div>
+		</main>
+		<div class="modal-backdrop"></div>
+		<script type="module" src="../js/dom/forecast.js"></script>
+	</body>
+</html>

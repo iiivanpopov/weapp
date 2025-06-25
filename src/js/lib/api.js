@@ -1,11 +1,36 @@
-import { config } from "./config.js";
+import { endpoints } from './endpoints.js'
 
-export const fetchWeather = async (city) => {
-  const response = await fetch(config.currentWeatherUrl(city));
-  return await response.json();
-};
+const ERRORS = {
+	CURRENT: 'Fetch current weather',
+	FORECAST: 'Fetch forecast'
+}
 
-export const fetchForecast = async (city, days) => {
-  const response = await fetch(config.forecastUrl(city, days));
-  return await response.json();
-};
+class Api {
+	async _send(url, errorMessage) {
+		const response = await fetch(url)
+
+		const json = await response.json()
+
+		if (!response.ok) {
+			const apiMessage = json?.error?.message
+			if (apiMessage === 'No matching location found') {
+				throw new Error(apiMessage)
+			}
+			throw new Error(`${errorMessage}: ${apiMessage ?? JSON.stringify(json)}`)
+		}
+
+		return json
+	}
+
+	current(city) {
+		const url = endpoints.current(city)
+		return this._send(url, ERRORS.CURRENT)
+	}
+
+	forecast(city, days) {
+		const url = endpoints.forecast(city, days)
+		return this._send(url, ERRORS.FORECAST)
+	}
+}
+
+export const $api = new Api()

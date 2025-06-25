@@ -1,74 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WeApp - Weather Forecast</title>
-  <link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="src/styles/style.css" />
-</head>
-<body>
-<main class="container">
-  <section class="panel panel--search">
-    <div class="input-pair">
-      <input class="input" id="input" name="city" placeholder="Enter your city" type="text" aria-label="Search city for weather" />
-      <div class="options" role="listbox"></div>
-    </div>
-    <button class="submit" type="button">Submit</button>
-    <div class="error" role="alert"></div>
-  </section>
-
-  <section class="panel panel--weather card">
-    <div class="field-group">
-      <div class="field">
-        <div class="label">Country:</div>
-        <div class="value country" itemprop="addressCountry"></div>
-      </div>
-      <div class="field">
-        <div class="label">City:</div>
-        <div class="value city" itemprop="name"></div>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <div class="field">
-        <div class="label">Humidity:</div>
-        <div class="value humidity"></div>
-      </div>
-      <div class="field">
-        <div class="label">Temperature:</div>
-        <div class="value temperature"></div>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <div class="field">
-        <div class="label">Wind speed:</div>
-        <div class="value wind-speed"></div>
-      </div>
-      <div class="field">
-        <div class="label">Direction:</div>
-        <div class="value wind-direction"></div>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <div class="field">
-        <div class="label">Time:</div>
-        <div class="value localtime"></div>
-      </div>
-
-      <div class="field">
-        <div class="label">Cloudiness:</div>
-        <div class="value cloud"></div>
-      </div>
-    </div>
-  </section>
-  <div class="switch-page"><a href="src/pages/forecast/forecast.html">Forecast</a></div>
-</main>
-<div class="temperature-gradient"></div>
-
-<script type="module" src="script.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WeApp - Weather Forecast</title>
+		<link
+			rel="shortcut icon"
+			href="src/assets/favicon.ico"
+			type="image/x-icon"
+		/>
+		<link rel="stylesheet" href="src/styles/theme.css" />
+		<link rel="stylesheet" href="src/styles/global.css" />
+		<link rel="stylesheet" href="src/styles/landing.css" />
+	</head>
+	<body>
+		<main class="container">
+			<div class="card navigation">
+				<a href="src/pages/current-weather.html" class="link"
+					>Current weather</a
+				>
+				<a href="src/pages/forecast.html" class="link">Forecast</a>
+			</div>
+		</main>
+	</body>
 </html>
