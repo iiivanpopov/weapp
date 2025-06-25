@@ -193,6 +193,10 @@ body {
 	color: var(--primary);
 }
 
+.navigation {
+	margin-top: 200px;
+}
+
 @media (max-width: 1000px) {
 	:root {
 		--text-lg: 1.2rem;

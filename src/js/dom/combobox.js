@@ -5,23 +5,23 @@ import { SORTED_CITIES } from '../lib/constants.js'
 let debounce
 let ignoreBlur
 
-const LOWERED = SORTED_CITIES.map(s => s.toLowerCase())
+const LOWERED = SORTED_CITIES.map(city => city.toLowerCase())
+
+const filterOptions = term => {
+	const loweredTerm = term.toLowerCase()
+	return SORTED_CITIES.filter((_, i) => LOWERED[i].includes(loweredTerm))
+}
 
 const renderOptions = options => {
 	combobox.cityList.innerHTML = options
-		.map(city => {
-			return `
+		.map(
+			city => `
 			<div class="combobox__option" data-city="${city}">
 				${city}
 			</div>
 		`
-		})
+		)
 		.join('')
-}
-
-const filterOptions = term => {
-	const t = term.toLowerCase()
-	return SORTED_CITIES.filter((_, i) => LOWERED[i].includes(t))
 }
 
 const showOptions = () => {
@@ -36,34 +36,40 @@ const hideOptions = () => {
 
 export const setupCombobox = selectCallback => {
 	on(combobox.cityInput, 'focus', () => {
-		if (!combobox.cityInput.value) renderOptions(SORTED_CITIES)
+		if (!combobox.cityInput.value) {
+			renderOptions(SORTED_CITIES)
+		}
 		showOptions()
 	})
 
 	on(combobox.cityInput, 'blur', () => {
-		if (!ignoreBlur) hideOptions()
+		if (!ignoreBlur) {
+			hideOptions()
+		}
 	})
 
 	on(combobox.cityInput, 'input', e => {
 		clearTimeout(debounce)
 		debounce = setTimeout(() => {
 			const filtered = filterOptions(e.target.value)
-			if (filtered.length) return renderOptions(filtered)
-
-			combobox.cityList.innerHTML = 'Nothing found'
+			if (filtered.length) renderOptions(filtered)
+			else combobox.cityList.innerHTML = 'Nothing found'
 		}, 400)
 	})
 
 	on(combobox.cityList, 'mouseover', e => {
-		const target = e.target.closest('.combobox__option')
-		ignoreBlur = !!target
+		const option = e.target.closest('.combobox__option')
+		ignoreBlur = !!option
 	})
 
 	on(combobox.cityList, 'click', async e => {
-		const target = e.target.closest('.combobox__option')
-		combobox.cityInput.value = target.dataset.city
+		const option = e.target.closest('.combobox__option')
+		if (!option) return
+
+		combobox.cityInput.value = option.dataset.city
 		combobox.cityInput.focus()
 		hideOptions()
+
 		if (selectCallback) await selectCallback()
 	})
 }

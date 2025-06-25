@@ -11,7 +11,7 @@ const saveTheme = theme => {
 	localStorage.setItem('theme', theme)
 }
 
-export const loadTheme = theme => {
+export const loadTheme = () => {
 	document.body.classList.add(getTheme())
 }
 
