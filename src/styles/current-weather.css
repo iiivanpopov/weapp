@@ -12,6 +12,11 @@
 	grid-column: span 2;
 }
 
+.field {
+	animation: slideIn 1.5s forwards;
+	opacity: 0;
+}
+
 .current-weather {
 	display: grid;
 	grid-template-columns: 1fr 1fr;

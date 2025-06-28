@@ -1,7 +1,7 @@
-import { setupCombobox } from './combobox.js'
-import { $, formatCloudiness, on } from '../lib/utils.js'
 import { $api } from '../lib/api.js'
 import { loadTheme, toggleTheme } from '../lib/theme.js'
+import { $, formatCloudiness, on } from '../lib/utils.js'
+import { setupCombobox } from './combobox.js'
 import {
 	cityForm,
 	combobox,

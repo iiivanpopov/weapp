@@ -1,8 +1,8 @@
-import { currentElements, theme } from './elements.js'
-import { setupCombobox } from './combobox.js'
 import { $api } from '../lib/api.js'
-import { formatCloudiness, on } from '../lib/utils.js'
 import { loadTheme, toggleTheme } from '../lib/theme.js'
+import { formatCloudiness, on } from '../lib/utils.js'
+import { setupCombobox } from './combobox.js'
+import { currentElements, theme } from './elements.js'
 
 const mapWeatherResponse = response => {
 	const {
@@ -25,8 +25,8 @@ const mapWeatherResponse = response => {
 const displayWeather = weather => {
 	currentElements.response.innerHTML = Object.entries(weather)
 		.map(
-			([key, value]) => `
-			<div class="field">
+			([key, value], i) => `
+			<div class="field"  style="animation-delay: ${(i * 0.05).toFixed(2)}s;">
 				<span class="label field__label">${key.toTitleCase()}</span>
 				<span class="field__value">${value}</span>
 			</div>
