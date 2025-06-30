@@ -36,6 +36,7 @@ body {
 	color: var(--text);
 	font-family: 'Satoshi', sans-serif;
 	font-size: var(--text-md);
+	height: 100vh;
 }
 
 .button,
@@ -48,8 +49,7 @@ body {
 	font-size: var(--text-md);
 	outline: none;
 	padding: 0.5rem;
-	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-	transition-delay: 50ms;
+	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 	width: 100%;
 }
 
@@ -71,6 +71,7 @@ body {
 	border-radius: 0.5rem;
 	border-top: var(--border-top);
 	box-shadow: var(--shadow);
+	height: fit-content;
 	margin-bottom: 10vh;
 	padding: 1rem;
 }
@@ -152,7 +153,7 @@ body {
 .link {
 	color: var(--secondary);
 	font-weight: bold;
-	transition: color 0.3s ease-in-out;
+	transition: color 0.2s ease-in-out;
 }
 
 .link:hover {
@@ -190,7 +191,7 @@ body {
 .theme {
 	background: none;
 	width: 200px;
-	transition: color 0.3s ease-in-out;
+	transition: color 0.2s ease-in-out;
 	font-family: 'Satoshi', sans-serif;
 	font-size: var(--text-sm);
 	color: var(--text-muted);

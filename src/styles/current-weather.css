@@ -24,10 +24,20 @@
 	width: 500px;
 }
 
+#city-input {
+	width: 250px;
+}
+
+#fetch-current {
+	width: 200px;
+	justify-self: end;
+}
+
 @media (max-width: 1000px) {
 	.city-form {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		width: 300px;
 	}
 
@@ -35,5 +45,9 @@
 		display: flex;
 		flex-direction: column;
 		width: 300px;
+	}
+
+	#fetch-current {
+		width: 250px;
 	}
 }

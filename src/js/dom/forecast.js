@@ -19,7 +19,16 @@ const mapForecastResponse = response => {
 	const days = forecastday.map(({ date, hour }) => ({
 		date,
 		hours: hour.map(
-			({ temp_c, feelslike_c, wind_kph, cloud, humidity, wind_dir }) => ({
+			({
+				temp_c,
+				feelslike_c,
+				wind_kph,
+				cloud,
+				humidity,
+				wind_dir,
+				condition
+			}) => ({
+				icon: condition.icon,
 				temp: `${temp_c}°C`,
 				feels: `${feelslike_c}°C`,
 				'wind speed': `${wind_kph}km/h`,
@@ -40,10 +49,17 @@ const renderModal = (id, hour) => `
 			.map(
 				([key, value]) => `
 					<div class="field">
-						<span class="label field__label">${key.toTitleCase()}</span>
-						<span class="field__value">${value}</span>
-					</div>
-				`
+						${
+							key == 'icon'
+								? ''
+								: `<span class="label field__label">${key.toTitleCase()}</span>`
+						}
+						${
+							key == 'icon'
+								? `<img class="field__icon" src="${value}" alt="condition"></img>`
+								: `<span class="field__value">${value}</span>`
+						}
+					</div>`
 			)
 			.join('')}
 	</div>
@@ -53,10 +69,10 @@ const displayForecast = forecast => {
 	let modals = ''
 
 	const content = forecast.days
-		.map(day => {
+		.map((day, oi) => {
 			const hoursHtml = day.hours
 				.map((hour, i) => {
-					const delay = (i * 0.05).toFixed(2)
+					const delay = (i * 0.02 + oi * 0.025 * 24).toFixed(2)
 					const time = `${i.toString().padStart(2, '0')}:00`
 
 					modals += renderModal(i, hour)

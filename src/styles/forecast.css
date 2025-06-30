@@ -1,9 +1,7 @@
 .city-form {
 	display: grid;
 	gap: 20px;
-	grid-template-columns: 3fr 3fr 1fr;
-	justify-items: center;
-	width: 700px;
+	width: 100%;
 }
 
 .city-form__error {
@@ -14,6 +12,7 @@
 
 .forecast {
 	display: flex;
+	gap: 10px;
 	flex-direction: column;
 }
 
@@ -54,10 +53,21 @@
 
 .modal {
 	height: fit-content;
+	gap: 5px;
+}
+
+.field__icon {
+	width: 64px;
+	height: 64px;
 }
 
 .modal__close {
-	grid-column: span 2;
+	width: 64px;
+	display: flex;
+	justify-content: center;
+	background: none;
+	box-shadow: none;
+	align-items: center;
 }
 
 @media (max-width: 1000px) {
@@ -65,6 +75,8 @@
 	.forecast {
 		gap: 10px;
 		width: 400px;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.hours__grid {

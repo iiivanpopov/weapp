@@ -19,6 +19,52 @@
 	--border-card: 1px solid var(--border);
 	--border-top: 1px solid var(--highlight);
 	--shadow: 0px 2px 2px oklch(0 0 0 / 0.2), 0px 4px 4px oklch(0 0 0 / 0.1);
+
+	--temp-gradient--30: linear-gradient(
+		0deg,
+		oklch(0.1 0.02 260),
+		oklch(0.15 0.02 260)
+	);
+	--temp-gradient--20: linear-gradient(
+		0deg,
+		oklch(0.12 0.02 260),
+		oklch(0.17 0.02 260)
+	);
+	--temp-gradient--10: linear-gradient(
+		0deg,
+		oklch(0.14 0.025 250),
+		oklch(0.18 0.025 250)
+	);
+	--temp-gradient-0: linear-gradient(
+		0deg,
+		oklch(0.18 0.03 220),
+		oklch(0.22 0.03 220)
+	);
+	--temp-gradient-10: linear-gradient(
+		0deg,
+		oklch(0.22 0.03 190),
+		oklch(0.26 0.03 190)
+	);
+	--temp-gradient-20: linear-gradient(
+		0deg,
+		oklch(0.26 0.035 160),
+		oklch(0.3 0.035 160)
+	);
+	--temp-gradient-30: linear-gradient(
+		0deg,
+		oklch(0.3 0.035 130),
+		oklch(0.34 0.035 130)
+	);
+	--temp-gradient-40: linear-gradient(
+		0deg,
+		oklch(38.728% 0.04691 64.421),
+		oklch(46.011% 0.05688 62.637)
+	);
+	--temp-gradient-50: linear-gradient(
+		0deg,
+		oklch(38.876% 0.06595 34.886),
+		oklch(49.201% 0.07386 44.749)
+	);
 }
 body.light {
 	--bg-dark: oklch(0.92 0.02 229);
@@ -41,4 +87,50 @@ body.light {
 	--border-card: 1px solid var(--bg);
 	--border-top: 1px solid var(--bg);
 	--shadow: 0px 2px 2px oklch(0 0 0 / 0.2), 0px 4px 4px oklch(0 0 0 / 0.1);
+
+	--temp-gradient--30: linear-gradient(
+		to top,
+		oklch(0.9 0.03 260),
+		oklch(0.95 0.03 260)
+	);
+	--temp-gradient--20: linear-gradient(
+		to top,
+		oklch(0.87 0.03 260),
+		oklch(0.92 0.03 260)
+	);
+	--temp-gradient--10: linear-gradient(
+		to top,
+		oklch(0.85 0.04 250),
+		oklch(0.9 0.04 250)
+	);
+	--temp-gradient-0: linear-gradient(
+		to top,
+		oklch(0.83 0.04 180),
+		oklch(0.88 0.04 180)
+	);
+	--temp-gradient-10: linear-gradient(
+		to top,
+		oklch(0.82 0.05 120),
+		oklch(0.87 0.05 120)
+	);
+	--temp-gradient-20: linear-gradient(
+		to top,
+		oklch(0.8 0.05 90),
+		oklch(0.85 0.05 90)
+	);
+	--temp-gradient-30: linear-gradient(
+		to top,
+		oklch(0.78 0.05 60),
+		oklch(0.83 0.05 60)
+	);
+	--temp-gradient-40: linear-gradient(
+		to top,
+		oklch(0.76 0.06 30),
+		oklch(0.81 0.06 30)
+	);
+	--temp-gradient-50: linear-gradient(
+		to top,
+		oklch(0.74 0.06 10),
+		oklch(0.79 0.06 10)
+	);
 }

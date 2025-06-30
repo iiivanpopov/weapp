@@ -1,6 +1,6 @@
 import { $api } from '../lib/api.js'
 import { loadTheme, toggleTheme } from '../lib/theme.js'
-import { formatCloudiness, on } from '../lib/utils.js'
+import { formatCloudiness, on, getTempGradientVar } from '../lib/utils.js'
 import { setupCombobox } from './combobox.js'
 import { currentElements, theme } from './elements.js'
 
@@ -23,6 +23,8 @@ const mapWeatherResponse = response => {
 }
 
 const displayWeather = weather => {
+	document.body.style.background = getTempGradientVar(parseInt(weather.temp))
+
 	currentElements.response.innerHTML = Object.entries(weather)
 		.map(
 			([key, value], i) => `

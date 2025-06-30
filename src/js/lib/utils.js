@@ -9,6 +9,18 @@ export const formatCloudiness = percent => {
 	return 'Overcast'
 }
 
+export const getTempGradientVar = temp => {
+	if (temp <= -30) return 'var(--temp-gradient--30)'
+	if (temp <= -20) return 'var(--temp-gradient--20)'
+	if (temp <= -10) return 'var(--temp-gradient--10)'
+	if (temp <= 0) return 'var(--temp-gradient-0)'
+	if (temp <= 10) return 'var(--temp-gradient-10)'
+	if (temp <= 20) return 'var(--temp-gradient-20)'
+	if (temp <= 30) return 'var(--temp-gradient-30)'
+	if (temp <= 40) return 'var(--temp-gradient-40)'
+	return 'var(--temp-gradient-50)'
+}
+
 String.prototype.toTitleCase = function () {
 	return this.toLowerCase()
 		.split(' ')
